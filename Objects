@@ -1,0 +1,6 @@
+Primitive Value -> Its have no properties and methods
+Primitive data types (5) -> i) Boolean ii) String iii) Number iv) Undefined v) nullame
+Objects -> Named value pairs 
+In Javascript, everything is an object.
+object method -> object property containing a function definition.
+Objects are mutable: They are addressed by reference, not by value.
