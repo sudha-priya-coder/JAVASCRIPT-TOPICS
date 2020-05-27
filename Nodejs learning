@@ -1,0 +1,24 @@
+if URL = 'http://localhost:8080/default.htm?year=2020&month=may';
+
+Url {
+  protocol: 'http:',
+  slashes: true,
+  auth: null,
+  host: 'localhost:8080',
+  port: '8080',
+  hostname: 'localhost',
+  hash: null,
+  search: '?year=2017&month=february',
+  query: [Object: null prototype] { year: '2017', month: 'february' },
+  pathname: '/default.htm',
+  path: '/default.htm?year=2017&month=february',
+  href: 'http://localhost:8080/default.htm?year=2017&month=february'
+}
+
+Filesystem predefined methods
+i) readFile -> 2 arg
+ii) writeFile -> 1 arg
+iii) appendFile -> 1 arg
+iv) open -> 2 arg
+v) rename -> 1 arg
+vi)unlink -> 1 arg
