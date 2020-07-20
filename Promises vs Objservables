@@ -1,0 +1,52 @@
+Promises vs Observables
+
+1)  Promise -> eager, Observable -> lazy,
+2) Promise -> always asynchronous,  Observable -> synchronous or asynchronous,
+3)  Promise -> can provide a single value,  Observable -> is a stream of values (from 0 to multiple values),
+4) Promise -> No Rxjs opertors, Observables ->  apply RxJS operators to get a new tailored stream.
+
+
+Promise
+
+A promise is an object which can be returned synchronously from an asynchronous function. It will be in one of 3 possible states:
+Fulfilled: onFulfilled() will be called (e.g., resolve() was called)
+Rejected: onRejected() will be called (e.g., reject() was called)
+Pending: not yet fulfilled or rejected
+A promise is settled if it’s not pending (it has been resolved or rejected). Sometimes people use resolved and settled to mean the same thing: not pending.
+
+Observable
+
+
+
+
+// observables
+const { Observable } = rxjs;
+const { map} = rxjs.operators;
+
+const notifications$ = new Observable(observer => {
+  const interval = setInterval(() => {
+    observer.next('New notification');
+  }, 2000);
+
+  return () => clearInterval(interval);
+});
+
+const enhancedNotifications$ = notifications$.pipe(
+  map(message => `${message} ${new Date()}`)
+);
+
+const subscription = enhancedNotifications$.subscribe(console.log);
+
+setTimeout(() => subscription.unsubscribe(), 8000);
+
+
+//Promises
+
+const greetingPoster = new Promise((resolve, reject) => {
+  console.log('Inside Promise (proof of being eager)');
+  resolve('Welcome! Nice to meet you.');
+});
+
+console.log('Before calling then on Promise');
+
+greetingPoster.then(res => console.log(`Greeting from promise: ${res}`));
